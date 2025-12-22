@@ -1,0 +1,16 @@
+level,category,item,non_radical_pct,n_papers,hvm_pct,notes
+L1,Catalyst Platform,SAC,71.1,90,46.4,Highest selectivity; inner-sphere ET
+L1,Catalyst Platform,Carbon-based,67.9,28,3.1,Practical alternative; surface-mediated
+L1,Catalyst Platform,Biochar,55.3,47,6.2,Intermediate; heteroatom-dependent
+L1,Catalyst Platform,MOF-derived,35.3,184,21.6,Lower selectivity; outer-sphere ET
+L1,Catalyst Platform,Metal oxide,31.1,119,15.5,Lowest selectivity; mechanism diversity
+L2,Active Site,M-N4 (Fe-N4/Co-N4),71.1,52,46.4,37/52 papers; dominant SAC sites
+L2,Active Site,M-N6,-,2,-,Rare (3.8%); HVM-associated
+L2,Defect,N-doping (~all types),~55,111,-,No significant type-specific difference
+L2,Defect,Oxygen vacancies,42.2,192,-,Versatile; non-specific mechanism
+L3,Target ROS,Fe-N4 → Fe(IV)=O,-,-,-,Direct oxidation of electron-rich pollutants
+L3,Target ROS,Co-N4 → ¹O₂,-,-,-,Energy transfer oxidation
+L3,Target ROS,Carbon → ¹O₂/ETP,-,-,-,Surface electron shuttle mechanism
+L4,Environment,pH 6-8,-,357,-,92% of pH-reporting papers
+L4,Environment,Cl⁻ enhancement,-,-,-,3.4-fold HVM enhancement
+L4,Environment,ClO₄⁻ suppression,-,-,-,ETP pathway inhibition

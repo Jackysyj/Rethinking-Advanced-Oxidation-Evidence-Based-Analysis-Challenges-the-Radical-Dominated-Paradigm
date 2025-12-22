@@ -1,0 +1,528 @@
+{
+  "metadata": {
+    "generated_at": "2025-12-16T00:05:17.673551",
+    "papers_evaluated": 15,
+    "experiments": [
+      "round1_md_direct",
+      "round1_md_multistage",
+      "round2_pdf_direct",
+      "round2_pdf_multistage"
+    ],
+    "tolerance_settings": {
+      "percentage": 0.01,
+      "rate_constant": 0.1,
+      "default_numeric": 0.05
+    }
+  },
+  "experiment_summaries": {
+    "round1_md_direct": {
+      "input_format": "MD",
+      "strategy": "Direct",
+      "models": {
+        "claude": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 64.28,
+          "total_cost_usd": 14.866,
+          "avg_precision": 0.6471662519383956,
+          "avg_recall": 0.42313434490529844,
+          "avg_f1": 0.5083655556073131,
+          "avg_completeness": 0.6304533285085923,
+          "avg_core_f1": 0.8977791275645112,
+          "avg_core_precision": 0.9328297687565422,
+          "avg_core_recall": 0.8661920446703056,
+          "avg_optional_f1": 0.37629256639971403,
+          "avg_optional_precision": 0.6452380952380953,
+          "avg_optional_recall": 0.2776896300580511,
+          "total_hallucinations": 6,
+          "total_missing": 713
+        },
+        "sonnet": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 53.14333333333333,
+          "total_cost_usd": 2.8478,
+          "avg_precision": 0.6558994172136122,
+          "avg_recall": 0.4588300496095616,
+          "avg_f1": 0.5366781570450438,
+          "avg_completeness": 0.6421374015496238,
+          "avg_core_f1": 0.9099400927446571,
+          "avg_core_precision": 0.9239274999091933,
+          "avg_core_recall": 0.8973976410063366,
+          "avg_optional_f1": 0.40326167560223286,
+          "avg_optional_precision": 0.6958730158730159,
+          "avg_optional_recall": 0.2986754278859542,
+          "total_hallucinations": 10,
+          "total_missing": 690
+        },
+        "gpt4o": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 10.950666666666667,
+          "total_cost_usd": 1.9572,
+          "avg_precision": 0.5604375504441316,
+          "avg_recall": 0.371721787994638,
+          "avg_f1": 0.4442856026369965,
+          "avg_completeness": 0.6416507835447577,
+          "avg_core_f1": 0.897461565157348,
+          "avg_core_precision": 0.9221612463305827,
+          "avg_core_recall": 0.8754066127109605,
+          "avg_optional_f1": 0.33455553342227184,
+          "avg_optional_precision": 0.5923809523809525,
+          "avg_optional_recall": 0.244104973973395,
+          "total_hallucinations": 13,
+          "total_missing": 691
+        },
+        "gemini": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 73.53133333333334,
+          "total_cost_usd": 1.2132,
+          "avg_precision": 0.6108912393257075,
+          "avg_recall": 0.419182028493843,
+          "avg_f1": 0.4937587343482805,
+          "avg_completeness": 0.6342599929788267,
+          "avg_core_f1": 0.9051130543571856,
+          "avg_core_precision": 0.9242942908434899,
+          "avg_core_recall": 0.8881657569483656,
+          "avg_optional_f1": 0.3306648105936032,
+          "avg_optional_precision": 0.5668253968253969,
+          "avg_optional_recall": 0.24331132317974422,
+          "total_hallucinations": 4,
+          "total_missing": 706
+        },
+        "qwen": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 29.154666666666667,
+          "total_cost_usd": 0.0669,
+          "avg_precision": 0.6570014434559528,
+          "avg_recall": 0.4460699898816468,
+          "avg_f1": 0.528429713385487,
+          "avg_completeness": 0.6309399465134585,
+          "avg_core_f1": 0.8915059139948737,
+          "avg_core_precision": 0.9231203359738829,
+          "avg_core_recall": 0.8633300081560952,
+          "avg_optional_f1": 0.38651519401364604,
+          "avg_optional_precision": 0.6680952380952381,
+          "avg_optional_recall": 0.28470717391770023,
+          "total_hallucinations": 9,
+          "total_missing": 712
+        },
+        "deepseek": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 190.98399999999998,
+          "total_cost_usd": 0.7263,
+          "avg_precision": 0.6028717742111968,
+          "avg_recall": 0.3912999714987313,
+          "avg_f1": 0.4709761373887831,
+          "avg_completeness": 0.6221270153278399,
+          "avg_core_f1": 0.8676639979007689,
+          "avg_core_precision": 0.9318471684261157,
+          "avg_core_recall": 0.8140554614467658,
+          "avg_optional_f1": 0.3326832851817372,
+          "avg_optional_precision": 0.5696825396825397,
+          "avg_optional_recall": 0.24647617976565345,
+          "total_hallucinations": 4,
+          "total_missing": 729
+        }
+      }
+    },
+    "round1_md_multistage": {
+      "input_format": "MD",
+      "strategy": "Multi-Stage",
+      "models": {
+        "claude": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 248.77866666666665,
+          "total_cost_usd": 25.244,
+          "avg_precision": 0.6304129924100141,
+          "avg_recall": 0.4249589388832615,
+          "avg_f1": 0.5050878724125568,
+          "avg_completeness": 0.6359907377516741,
+          "avg_core_f1": 0.8845666130462481,
+          "avg_core_precision": 0.9204176625137723,
+          "avg_core_recall": 0.8538028734550474,
+          "avg_optional_f1": 0.35839516589361786,
+          "avg_optional_precision": 0.6101587301587301,
+          "avg_optional_recall": 0.2632940256624467,
+          "total_hallucinations": 6,
+          "total_missing": 700
+        },
+        "gpt4o": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 35.352,
+          "total_cost_usd": 2.14,
+          "avg_precision": 0.5508628613864236,
+          "avg_recall": 0.36160862804736316,
+          "avg_f1": 0.4338318566419124,
+          "avg_completeness": 0.6200928869593496,
+          "avg_core_f1": 0.8541296016096338,
+          "avg_core_precision": 0.8744944993137213,
+          "avg_core_recall": 0.8361396574440053,
+          "avg_optional_f1": 0.2799337093361861,
+          "avg_optional_precision": 0.49174603174603176,
+          "avg_optional_recall": 0.20587397982134822,
+          "total_hallucinations": 10,
+          "total_missing": 728
+        },
+        "gemini": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 220.13133333333334,
+          "total_cost_usd": 1.7631,
+          "avg_precision": 0.6078721266632201,
+          "avg_recall": 0.41867013280102916,
+          "avg_f1": 0.4930425954241097,
+          "avg_completeness": 0.6341683864289585,
+          "avg_core_f1": 0.8830115152954963,
+          "avg_core_precision": 0.8994079764628964,
+          "avg_core_recall": 0.8683936256979735,
+          "avg_optional_f1": 0.3270938318647297,
+          "avg_optional_precision": 0.557936507936508,
+          "avg_optional_recall": 0.24362878349720454,
+          "total_hallucinations": 5,
+          "total_missing": 704
+        },
+        "qwen": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 108.97333333333333,
+          "total_cost_usd": 0.0861,
+          "avg_precision": 0.568083626585591,
+          "avg_recall": 0.38976671232862886,
+          "avg_f1": 0.45967446010610674,
+          "avg_completeness": 0.6317385580065368,
+          "avg_core_f1": 0.8262796496294206,
+          "avg_core_precision": 0.86868873435235,
+          "avg_core_recall": 0.7887794089968003,
+          "avg_optional_f1": 0.36091229788443413,
+          "avg_optional_precision": 0.6236507936507937,
+          "avg_optional_recall": 0.266483730694257,
+          "total_hallucinations": 7,
+          "total_missing": 709
+        },
+        "deepseek": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 433.184,
+          "total_cost_usd": 1.1239,
+          "avg_precision": 0.5633616332030589,
+          "avg_recall": 0.3764003433820117,
+          "avg_f1": 0.44796735590536163,
+          "avg_completeness": 0.5899690006674728,
+          "avg_core_f1": 0.7722448632240934,
+          "avg_core_precision": 0.8166151159629421,
+          "avg_core_recall": 0.7355854821506996,
+          "avg_optional_f1": 0.3496173939579512,
+          "avg_optional_precision": 0.6163492063492063,
+          "avg_optional_recall": 0.25511315682368313,
+          "total_hallucinations": 4,
+          "total_missing": 797
+        }
+      }
+    },
+    "round2_pdf_direct": {
+      "input_format": "PDF",
+      "strategy": "Direct",
+      "models": {
+        "claude": {
+          "total_papers": 15,
+          "successful_papers": 15,
+          "success_rate": 1.0,
+          "avg_time_seconds": 116.68866666666666,
+          "total_cost_usd": 17.8138,
+          "avg_precision": 0.6576644154478483,
+          "avg_recall": 0.4271126204717622,
+          "avg_f1": 0.5148276560689125,
+          "avg_completeness": 0.6306684669055489,
+          "avg_core_f1": 0.9182218326448123,
+          "avg_core_precision": 0.9293399000355522,
+          "avg_core_recall": 0.9078648597779033,
+          "avg_optional_f1": 0.3694187349171869,
+          "avg_optional_precision": 0.6490476190476191,
+          "avg_optional_recall": 0.26962780883833515,
+          "total_hallucinations": 6,
+          "total_missing": 712
+        },
+        "gemini": {
+          "total_papers": 15,
+          "successful_papers": 13,
+          "success_rate": 0.8666666666666667,
+          "avg_time_seconds": 130.50333333333333,
+          "total_cost_usd": 1.3688,
+          "avg_precision": 0.5353912297567125,
+          "avg_recall": 0.35157398157737274,
+          "avg_f1": 0.42128462275972756,
+          "avg_completeness": 0.5525211160116242,
+          "avg_core_f1": 0.8467276233200854,
+          "avg_core_precision": 0.8530085437064842,
+          "avg_core_recall": 0.8407271713793454,
+          "avg_optional_f1": 0.27170565350608217,
+          "avg_optional_precision": 0.5164835164835165,
+          "avg_optional_recall": 0.18679131260102919,
+          "total_hallucinations": 11,
+          "total_missing": 749
+        }
+      }
+    },
+    "round2_pdf_multistage": {
+      "input_format": "PDF",
+      "strategy": "Multi-Stage",
+      "models": {
+        "claude": {
+          "total_papers": 15,
+          "successful_papers": 14,
+          "success_rate": 0.9333333333333333,
+          "avg_time_seconds": 377.79266666666666,
+          "total_cost_usd": 32.439,
+          "avg_precision": 0.6271906411015004,
+          "avg_recall": 0.42252364760226074,
+          "avg_f1": 0.502315787492629,
+          "avg_completeness": 0.6394047379069187,
+          "avg_core_f1": 0.8702755791919164,
+          "avg_core_precision": 0.8800145420487036,
+          "avg_core_recall": 0.8612388077760749,
+          "avg_optional_f1": 0.3729403988315974,
+          "avg_optional_precision": 0.6323129251700681,
+          "avg_optional_recall": 0.2746602655907167,
+          "total_hallucinations": 12,
+          "total_missing": 651
+        },
+        "gemini": {
+          "total_papers": 15,
+          "successful_papers": 11,
+          "success_rate": 0.7333333333333333,
+          "avg_time_seconds": 392.43666666666667,
+          "total_cost_usd": 1.8951,
+          "avg_precision": 0.6043269003959195,
+          "avg_recall": 0.40718900887350457,
+          "avg_f1": 0.483879634780444,
+          "avg_completeness": 0.6215524168913981,
+          "avg_core_f1": 0.8820330438335638,
+          "avg_core_precision": 0.8890854696929171,
+          "avg_core_recall": 0.8752958438136303,
+          "avg_optional_f1": 0.35295107306928303,
+          "avg_optional_precision": 0.6253246753246753,
+          "avg_optional_recall": 0.2600804896857528,
+          "total_hallucinations": 10,
+          "total_missing": 528
+        }
+      }
+    }
+  },
+  "cross_model_consistency": {
+    "round1_md_direct": {
+      "total_fields_evaluated": 1107,
+      "consensus_fields": 615,
+      "majority_fields": 316,
+      "divergent_fields": 176,
+      "field_agreement_details": {}
+    },
+    "round1_md_multistage": {
+      "total_fields_evaluated": 1100,
+      "consensus_fields": 601,
+      "majority_fields": 342,
+      "divergent_fields": 157,
+      "field_agreement_details": {}
+    },
+    "round2_pdf_direct": {
+      "total_fields_evaluated": 802,
+      "consensus_fields": 627,
+      "majority_fields": 0,
+      "divergent_fields": 175,
+      "field_agreement_details": {}
+    },
+    "round2_pdf_multistage": {
+      "total_fields_evaluated": 745,
+      "consensus_fields": 567,
+      "majority_fields": 0,
+      "divergent_fields": 178,
+      "field_agreement_details": {}
+    }
+  },
+  "field_level_analysis": {
+    "most_reliable_fields": [
+      [
+        "reaction_conditions.current_density_mA_cm2",
+        1.0
+      ],
+      [
+        "degradation_performance.COD_removal_percent",
+        1.0
+      ],
+      [
+        "paper_info.title",
+        0.9908256880733946
+      ],
+      [
+        "reactive_species.quenching_experiments.performed",
+        0.9908256880733946
+      ],
+      [
+        "system_classification.is_photo_assisted",
+        0.9908256880733946
+      ],
+      [
+        "system_classification.is_electrochemical",
+        0.9908256880733946
+      ],
+      [
+        "reaction_conditions.temperature_C",
+        0.9886363636363636
+      ],
+      [
+        "reactive_species.EPR_analysis.performed",
+        0.9862385321100917
+      ],
+      [
+        "degradation_performance.removal_efficiency_percent",
+        0.9852216748768473
+      ],
+      [
+        "degradation_performance.rate_constant_unit",
+        0.9828571428571429
+      ],
+      [
+        "degradation_performance.TOC_removal_percent",
+        0.9827586206896551
+      ],
+      [
+        "degradation_performance.removal_time_min",
+        0.9770642201834863
+      ],
+      [
+        "experimental_system.target_pollutant.abbreviation",
+        0.963302752293578
+      ],
+      [
+        "reactive_species.identification_methods",
+        0.9587155963302753
+      ],
+      [
+        "reactive_species.identified_species",
+        0.9541284403669725
+      ],
+      [
+        "system_classification.is_heterogeneous_catalysis",
+        0.9541284403669725
+      ],
+      [
+        "catalytic_mechanism.mechanism_description",
+        0.9495412844036697
+      ],
+      [
+        "degradation_pathway.pathway_proposed",
+        0.9495412844036697
+      ],
+      [
+        "experimental_system.target_pollutant.name",
+        0.9403669724770642
+      ],
+      [
+        "paper_info.doi",
+        0.9357798165137615
+      ]
+    ],
+    "most_problematic_fields": [
+      [
+        "reaction_conditions.sulfite_concentration_mM",
+        0.0
+      ],
+      [
+        "reaction_conditions.UV_irradiance_uW_cm2",
+        0.0
+      ],
+      [
+        "degradation_performance.removal_efficiency_at_optimal_pH_percent",
+        0.0
+      ],
+      [
+        "degradation_performance.rate_constant_corrected",
+        0.0
+      ],
+      [
+        "degradation_performance.rate_constant_corrected_note",
+        0.0
+      ],
+      [
+        "reactive_species.quenching_experiments.pH_dependent_contribution.pH_6.0",
+        0.0
+      ],
+      [
+        "reactive_species.quenching_experiments.pH_dependent_contribution.pH_7.0",
+        0.0
+      ],
+      [
+        "reactive_species.quenching_experiments.pH_dependent_contribution.pH_9.0",
+        0.0
+      ],
+      [
+        "reactive_species.quenching_experiments.pH_dependent_contribution.pH_12.0",
+        0.0
+      ],
+      [
+        "reactive_species.EPR_analysis.note",
+        0.0
+      ],
+      [
+        "catalytic_mechanism.DFT_calculation.performed",
+        0.0
+      ],
+      [
+        "catalytic_mechanism.DFT_calculation.method",
+        0.0
+      ],
+      [
+        "catalytic_mechanism.DFT_calculation.findings",
+        0.0
+      ],
+      [
+        "comparative_performance.synergy_note",
+        0.0
+      ],
+      [
+        "ion_effect_study.tested",
+        0.0
+      ],
+      [
+        "ion_effect_study.ions_tested",
+        0.0
+      ],
+      [
+        "ion_effect_study.concentration",
+        0.0
+      ],
+      [
+        "ion_effect_study.effects.Cl-",
+        0.0
+      ],
+      [
+        "ion_effect_study.effects.HCO3-",
+        0.0
+      ],
+      [
+        "ion_effect_study.effects.NO3-",
+        0.0
+      ]
+    ]
+  },
+  "recommendations": [
+    "Best performing model: SONNET with round1_md_direct (F1: 0.537)",
+    "Markdown input outperforms PDF (avg F1: 0.484 vs 0.481)"
+  ]
+}

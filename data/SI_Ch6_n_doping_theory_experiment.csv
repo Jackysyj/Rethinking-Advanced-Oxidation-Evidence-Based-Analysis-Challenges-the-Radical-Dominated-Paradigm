@@ -1,0 +1,5 @@
+n_doping_type,dft_prediction_pct,experimental_pct,experimental_n,notes
+Graphitic N,75.0,56.3,48,DFT predicts highest due to stronger electron-donating character
+Pyridinic N,60.0,55.8,43,DFT predicts intermediate effectiveness
+Pyrrolic N,50.0,55.0,20,DFT predicts lowest effectiveness
+Average,-,55.7,111,No significant difference observed experimentally (p > 0.05)

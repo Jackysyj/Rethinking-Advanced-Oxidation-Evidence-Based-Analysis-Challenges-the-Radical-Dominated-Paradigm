@@ -1,0 +1,9 @@
+statistic,value
+total_papers,531
+papers_with_mechanism,520
+papers_with_species,400
+papers_with_both,400
+papers_with_catalyst_type,520
+papers_with_pollutant,529
+year_range_start,2019
+year_range_end,2025

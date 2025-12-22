@@ -1,0 +1,10 @@
+factor,parameter,value,unit,effect_on_non_radical,source
+pH reporting,papers reporting pH,388,count,-,Database analysis (73% of 531)
+pH distribution,papers in pH 6-8,357,count,-,Database analysis (92% of 388)
+pH mechanism,optimal pH range,6-8,-,Favors heterolytic activation,Literature consensus
+Chloride,enhancement factor,3.4,fold,Enhances HVM (Fe(IV)=O),High-chloride wastewater studies
+Chloride,mechanism,Cl⁻-mediated stabilization,-,Shifts toward non-radical,Literature
+Carbonate/Bicarbonate,effect,¹O₂ quenching,-,Reduces non-radical efficiency,Ubiquitous in natural waters
+Perchlorate,initial removal,99.2,%,Baseline,10 mM NaClO₄ study
+Perchlorate,after addition,37.9,%,Suppresses ETP,10 mM NaClO₄ study
+NOM,data availability,Limited,-,Knowledge gap,Literature review
