@@ -1,0 +1,124 @@
+{
+  "$schema": "PMS-AOP Gold Standard Schema v3.0",
+  "$description": "Schema with strict type enforcement for PMS-based AOP literature extraction. Focus on anti-hallucination and data quality.",
+  "$created": "2025-11-30",
+  "$updated": "2025-11-30",
+  "$author": "LLM Benchmark Experiment",
+  "$note": "v3.0: Added strict type requirements, control_experiments format enforcement",
+
+  "paper_id": "string (required) - Unique identifier, e.g., '04_Electro-Ti'",
+  "annotation_source": "string (required) - 'PDF' or 'Markdown'",
+
+  "paper_info": {
+    "title": "string (required)",
+    "journal": "string (required)",
+    "year": "integer (required) - MUST be integer, not string",
+    "doi": "string (required)"
+  },
+
+  "experimental_system": {
+    "target_pollutant": {
+      "name": "string (required) - Full chemical name",
+      "abbreviation": "string | null - Common abbreviation",
+      "category": "string (required) - One of: 'antibiotic', 'dye', 'phenolic compound', 'pharmaceutical', 'pesticide', 'other'"
+    },
+    "catalyst": {
+      "name": "string | null - Full catalyst name; null for homogeneous systems",
+      "type": "string | null - One of: 'MOF-derived', 'biochar', 'metal oxide', 'perovskite', 'SAC', 'carbon-based', 'electrode', 'other'",
+      "synthesis_method": "string | null - e.g., 'hydrothermal', 'pyrolysis', 'sol-gel', 'electrodeposition'"
+    },
+    "oxidant": "string (required) - 'PMS', 'PS', 'H2O2', or combination",
+    "activation_method": "string (required) - One of: 'heterogeneous catalysis', 'UV', 'visible light', 'electrochemical', 'thermal', 'homogeneous'",
+    "system_type": "string (required) - e.g., 'catalyst/PMS', 'UV/PMS', 'electro/PMS'"
+  },
+
+  "reaction_conditions": {
+    "pH": "number | null - Initial pH value",
+    "pH_optimal": "number | null",
+    "temperature_C": "number | null",
+    "catalyst_dosage_g_L": "number | null",
+    "oxidant_concentration_mM": "number | null",
+    "pollutant_concentration_mg_L": "number | null",
+    "reaction_time_min": "number | null",
+    "current_density_mA_cm2": "number | null - For electrochemical systems",
+    "light_source": "string | null - For photo-assisted systems"
+  },
+
+  "degradation_performance": {
+    "removal_efficiency_percent": "number | null",
+    "removal_time_min": "number | null",
+    "rate_constant": "number | null - Pseudo-first-order rate constant",
+    "rate_constant_unit": "string - Default 'min-1'",
+    "TOC_removal_percent": "number | null",
+    "COD_removal_percent": "number | null",
+    "reusability_cycles": "integer | null",
+    "efficiency_after_cycles_percent": "number | null"
+  },
+
+  "reactive_species": {
+    "identified_species": "array of strings (required) - Standard notation: 'SO4•−', '•OH', '1O2', 'O2•−', 'h+', 'e-'",
+    "dominant_species": "string | null - Main contributing ROS",
+    "identification_methods": "array of strings | null - e.g., ['EPR', 'quenching experiments', 'probe compounds']",
+
+    "quenching_experiments": {
+      "$description": "CRITICAL: Set performed=false if NOT described in paper",
+      "performed": "boolean (required) - Whether quenching experiments were conducted",
+      "scavengers_used": "array of strings - Empty array if not performed",
+      "results": "array of objects - Empty array if not performed",
+      "results_schema": {
+        "scavenger": "string - Scavenger name",
+        "target_ROS": "string - Target species, e.g., '•OH + SO4•−', '•OH', '1O2', 'O2•−'",
+        "inhibition_percent": "number | null - Only if EXPLICITLY stated in paper",
+        "effect": "string | null - e.g., 'significant inhibition', 'slight inhibition', 'no effect'"
+      }
+    },
+
+    "EPR_analysis": {
+      "$description": "CRITICAL: Set performed=false if NO EPR/ESR data in paper",
+      "performed": "boolean (required) - Whether EPR/ESR was conducted",
+      "spin_trap": "string | null - e.g., 'DMPO', 'TEMP'",
+      "detected_signals": "array of strings - Empty array if not performed"
+    }
+  },
+
+  "catalytic_mechanism": {
+    "radical_pathway": "boolean | null - MUST be boolean or null, not string",
+    "non_radical_pathway": "boolean | null - MUST be boolean or null, not string",
+    "dominant_mechanism": "string | null - One of: 'radical', 'non-radical', 'both'",
+    "key_active_sites": "array of strings - Empty array if not identified",
+    "mechanism_description": "string | null - Brief description of activation mechanism"
+  },
+
+  "degradation_pathway": {
+    "pathway_proposed": "boolean (required)",
+    "identification_method": "string | null - e.g., 'LC-MS', 'GC-MS', 'HPLC-QTOF'",
+    "num_intermediates": "integer | null",
+    "main_attack_sites": "array of strings - Empty array if not specified",
+    "reaction_types": "array of strings - Empty array if not specified",
+    "final_products": "array of strings - Empty array if not specified"
+  },
+
+  "system_classification": {
+    "is_heterogeneous_catalysis": "boolean (required)",
+    "is_photo_assisted": "boolean (required)",
+    "is_electrochemical": "boolean (required)",
+    "primary_classification": "string (required) - One of: 'heterogeneous_catalysis', 'photo_catalysis', 'electrochemical', 'hybrid'"
+  },
+
+  "comparative_performance": {
+    "control_experiments": {
+      "$description": "MUST be array of objects, NOT array of strings",
+      "type": "array of objects",
+      "object_schema": {
+        "condition": "string (required) - e.g., 'PMS only', 'EC only'",
+        "removal_percent": "number | null - Removal percentage if reported",
+        "rate_constant": "number | null - Rate constant if reported"
+      },
+      "examples": [
+        {"condition": "PMS only", "removal_percent": 19.97},
+        {"condition": "EC only", "removal_percent": 80.22, "rate_constant": 0.033}
+      ]
+    },
+    "synergy_observed": "boolean | null - MUST be boolean or null, not string like 'Yes'"
+  }
+}
