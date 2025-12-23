@@ -1,44 +1,122 @@
-# Data-Driven-Evidence-for-the-Non-radical-Paradigm-Shift-in-PMS-Based-AOPs
+# Open-Source Materials for PMS-AOP Critical Review
+
+## Rethinking Advanced Oxidation: Evidence-Based Analysis Challenges the Radical-Dominated Paradigm
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18017674.svg)](https://doi.org/10.5281/zenodo.18017674)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-This directory contains the data supporting the Critical Review manuscript. Raw extracted JSON files are retained for future research and not included in this release.
+## Overview
 
-## 📂 Dataset Structure
+This repository contains the open-source materials accompanying our critical review on peroxymonosulfate (PMS)-based advanced oxidation processes (AOPs). The review analyzes **531 peer-reviewed publications (2019-2025)** using a validated LLM-assisted data extraction framework.
 
-The data is organized by the analytical chapters of the review. The core master dataset is `SI_literature_full.csv`.
+### Key Findings
 
-### 1. Master Dataset
-*   **`SI_literature_full.csv`**: The complete, row-level dataset containing all extracted fields for every paper analyzed.
-    *   **Key Columns**: `paper_id`, `year`, `catalyst_type`, `pollutant_category`, `mechanism_category` (Radical/Non-radical/Both), `dominant_species`, `removal_efficiency`, `active_sites`, etc.
-*   **`SI_literature_list.csv`**: A simplified list of all diverse literature sources included in the review.
+- **Paradigm Shift**: Non-radical pathways increased from 35.0% to 46.0%, achieving majority status (51.0%) by 2025 (p = 0.017)
+- **Singlet Oxygen Dominance**: ¹O₂ emerged as the dominant reactive species, rising from 55% to 67% prevalence
+- **Catalyst-Mechanism Correlation**: Single-atom catalysts achieve 71.1% non-radical selectivity via M-N₄ sites
+- **Data Gap**: 41.4% of studies lack TOC data, revealing a 40-percentage-point gap between pollutant removal (96%) and mineralization (56%)
 
-### 2. Descriptive Statistics (Chapter 3)
-Files related to the general landscape of the field (pollutants, catalysts, and publication volume).
-*   `SI_Ch3_basic_statistics.csv`: Summary counts (total papers, missing data rates).
-*   `SI_Ch3_catalyst_distribution.csv`: Distribution of catalyst types (e.g., MOF-derived, SACs, Metal Oxides).
-*   `SI_Ch3_pollutant_distribution.csv`: Breakdown of target pollutants (Antibiotics, Phenolics, etc.).
+## Repository Structure
 
-### 3. Mechanism & Paradigm Shift (Chapter 4)
-Files tracking the temporal evolution of activation mechanisms and reactive species.
-*   **`SI_Ch4_mechanism_by_year.csv`**: Annual counts of Radical vs. Non-radical vs. Dual mechanisms (Evidence of the paradigm shift).
-*   **`SI_Ch4_species_by_period.csv`**: Frequency of dominant reactive species (¹O₂, HVM, •OH, etc.) over time.
-*   **`SI_Ch4_mechanism_species_flow.csv`**: Data for Sankey diagrams linking mechanism categories to specific reactive species.
+```
+open_source/
+├── README.md                 # This file
+├── data/                     # Aggregated datasets (CSV/JSON)
+│   ├── README.md             # Data documentation
+│   ├── SI_literature_full.csv         # Master dataset (531 papers)
+│   ├── SI_Ch3_*.csv          # Chapter 3: Descriptive statistics
+│   ├── SI_Ch4_*.csv          # Chapter 4: Mechanism trends
+│   ├── SI_Ch5_*.csv          # Chapter 5: Catalyst-mechanism correlations
+│   ├── SI_Ch6_*.csv          # Chapter 6: Design framework data
+│   └── SI_Ch2_*.json         # Chapter 2: LLM validation metrics
+├── prompts/                  # LLM extraction prompts
+│   ├── README.md             # Prompt documentation
+│   ├── direct_prompt.md      # Single-call extraction
+│   └── stage[1-4]_*.md       # Multi-stage extraction
+├── schemas/                  # Data extraction schema
+│   ├── README.md             # Schema documentation
+│   └── gold_standard_schema.json  # v3.0 schema
+└── scripts/                  # Utility scripts
+    ├── README.md             # Script documentation
+    ├── generate_si_data.py   # Data aggregation script
+    └── plot_config.py        # Plotting configuration
+```
 
-### 4. Catalyst-Mechanism Correlations (Chapter 5)
-Detailed matrices linking material properties to mechanistic outcomes.
-*   `SI_Ch5_catalyst_mechanism_matrix.csv`: Correlation matrix showing which catalysts favor which mechanisms.
-*   `SI_Ch5_sac_active_sites.csv`: Analysis specific to Single-Atom Catalysts (SACs) and their coordination environments (e.g., Fe-N4, Co-N4).
-*   `SI_Ch5_defect_mechanism.csv`: Impact of defects (general) on mechanism selection.
-*   `SI_Ch5_n_doping_mechanism.csv`: Specific analysis of Nitrogen doping types (Graphitic, Pyridinic, Pyrrolic).
-*   `SI_Ch5_hvm_by_catalyst.csv`: Which catalysts are most likely to generate High-Valent Metal (HVM) species.
+## Quick Start
 
-### 5. Design Framework & Environmental Factors (Chapter 6)
-Data supporting the rational design guidelines.
-*   `SI_Ch6_design_framework_summary.csv`: Summary data for the hierarchical decision tree (Catalyst -> Active Site -> Species).
-*   `SI_Ch6_environmental_effects.csv`: Aggregated data on the effects of water matrix parameters (pH, anions).
-*   `SI_Ch6_n_doping_theory_experiment.csv`: Data contrasting theoretical predictions vs. experimental realities of N-doping.
+### Load and Explore the Data
 
-### 6. Evaluation Metrics
-*   `SI_Ch2_evaluation_detailed.json` & `SI_Ch2_per_paper_metrics.json`: Validation metrics for the LLM extraction pipeline (Precision/Recall/F1 scores compared to human ground truth).
+```python
+import pandas as pd
+
+# Load the master dataset
+df = pd.read_csv('data/SI_literature_full.csv')
+
+# View paradigm shift over time
+trends = df.groupby(['year', 'mechanism_category']).size().unstack().fillna(0)
+print(trends)
+
+# Analyze SAC selectivity
+sac = df[df['catalyst_type'] == 'SAC']
+print(sac['dominant_mechanism'].value_counts(normalize=True))
+```
+
+### Use the Extraction Prompts
+
+```python
+import json
+
+# Load the schema
+with open('schemas/gold_standard_schema.json', 'r') as f:
+    schema = json.load(f)
+
+# Load the direct extraction prompt
+with open('prompts/direct_prompt.md', 'r') as f:
+    prompt = f.read()
+
+# Use with your preferred LLM API
+# response = llm.complete(system_prompt=prompt, user_prompt=paper_content)
+```
+
+## LLM Extraction Performance
+
+Our multi-stage extraction pipeline achieved:
+
+| Metric | F1 Score |
+|--------|----------|
+| Core fields (title, journal, year) | 0.892 |
+| Mechanism classification | 0.847 |
+| Reactive species identification | 0.823 |
+| **Overall weighted average** | **0.856** |
+
+## What's NOT Included
+
+For copyright and practical reasons, the following are **not** included:
+
+- Raw PDF files of the 531 papers
+- OCR-converted markdown files
+- Intermediate extraction results
+- Word document generation scripts
+
+## Citation
+
+
+
+## License
+
+This repository is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+
+You are free to:
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material for any purpose
+
+Under the following terms:
+- **Attribution** — You must give appropriate credit and indicate if changes were made
+
+## Contact
+
+For questions or collaborations, please open an issue in this repository or contact the corresponding author.
 
 ---
+
+*This work demonstrates the potential of LLM-assisted systematic reviews in environmental science research.*
